@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Watsapsap — Websites and apps for small and medium businesses</title>
+    <meta
+      name="description"
+      content="Watsapsap Ltd in Bromley builds websites, web apps, phone apps and content systems for small and medium businesses. A clear process, training for your team, and a month of free fixes after launch."
+    />
+    <meta name="theme-color" content="#f4f6fa" />
+    <script>
+      (function () {
+        var key = "watsapsap-theme";
+        try {
+          var legacy = localStorage.getItem("theme");
+          if (
+            (legacy === "light" || legacy === "dark") &&
+            localStorage.getItem(key) !== "light" &&
+            localStorage.getItem(key) !== "dark"
+          ) {
+            localStorage.setItem(key, legacy);
+          }
+          var saved = localStorage.getItem(key);
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.dataset.theme = theme;
+          document.querySelector('meta[name="theme-color"]').content =
+            theme === "dark" ? "#07111e" : "#f4f6fa";
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-bar">
+        <a class="brand" href="#top">
+          <span class="mark" aria-hidden="true"></span>
+          Watsapsap
+        </a>
+
+        <nav id="site-nav" class="site-nav" aria-label="Page">
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#work">Work</a>
+          <a href="#clients">Clients</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="theme-toggle" type="button" aria-pressed="false">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M15.5 3.5a8.5 8.5 0 1 0 5 12.2A7 7 0 0 1 15.5 3.5Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <path
+              d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span class="theme-toggle-text when-light">Dark mode</span>
+          <span class="theme-toggle-text when-dark">Light mode</span>
+        </button>
+
+        <a class="button button-small header-contact" href="#contact">Get in touch</a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">Small and medium businesses · Bromley</p>
+            <h1>We look after the website. You look after the business.</h1>
+            <p class="lede">
+              Watsapsap builds websites, web apps, phone apps and the system
+              behind them for owners and small teams. You get a plain-English
+              process, training so your people can update it, and a month of
+              free fixes after launch.
+            </p>
+            <div class="actions">
+              <a class="button" href="#contact">Get in touch</a>
+              <a class="button button-quiet" href="#work">See our work</a>
+            </div>
+          </div>
+
+          <a class="hero-shot" href="#tectum">
+            <img
+              src="assets/tectum.jpg"
+              width="1600"
+              height="822"
+              alt="Tectum Ecobau website shown on a desktop, laptop, tablet and phone"
+              fetchpriority="high"
+            />
+            <span class="hero-shot-caption">
+              <span>Selected work</span>
+              <strong class="hero-shot-title">View Tectum Ecobau</strong>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="band" id="services" aria-labelledby="services-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">Services</p>
+            <h2 id="services-title">What a smaller business actually needs</h2>
+            <p class="lede">
+              Most clients come to us without a digital department. We scope
+              the job to the customers you have now, then leave your team able
+              to run it.
+            </p>
+          </header>
+
+          <div class="service-grid">
+            <article class="service">
+              <p class="index">01</p>
+              <h3>Website &amp; web app</h3>
+              <p>
+                A site people can use on a phone, with a clear route to
+                enquire, book or buy. Useful when the current site is hard to
+                update, or it does not bring in the work.
+              </p>
+              <button type="button" class="text-link" data-subject="Website or web app">
+                Talk about a website
+              </button>
+            </article>
+            <article class="service">
+              <p class="index">02</p>
+              <h3>Phone &amp; tablet app</h3>
+              <p>
+                An app for the customers or staff who live on a phone. A better
+                fit than a website when the job is repeated every day, such as
+                bookings, updates or a tool for your team.
+              </p>
+              <button type="button" class="text-link" data-subject="Phone or tablet app">
+                Talk about an app
+              </button>
+            </article>
+            <article class="service">
+              <p class="index">03</p>
+              <h3>Content system</h3>
+              <p>
+                A back end your office can use. We build it, train the people
+                who will publish, and stay on for maintenance so you are not
+                calling a developer for every change.
+              </p>
+              <button type="button" class="text-link" data-subject="Content system">
+                Talk about a content system
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-plain" id="process" aria-labelledby="process-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">How it works</p>
+            <h2 id="process-title">Three steps. No agency fog.</h2>
+            <p class="lede">
+              You are running a business while this gets built. Each step has
+              a job, and you always know whether we are listening, building or
+              getting ready to launch.
+            </p>
+          </header>
+
+          <ol class="steps">
+            <li class="step">
+              <span class="step-index">1</span>
+              <p class="step-name">Consultation</p>
+              <h3>We start with your customers</h3>
+              <p>
+                We look at how people find you, what they need to do, and what
+                is getting in the way. The recommendation is the simplest build
+                that does that job.
+              </p>
+              <ul class="points">
+                <li>How a customer moves from first visit to enquiry</li>
+                <li>What the business needs the system to do this year</li>
+                <li>Where a simpler approach will do</li>
+                <li>What is worth fixing before anything new is added</li>
+              </ul>
+            </li>
+            <li class="step">
+              <span class="step-index">2</span>
+              <p class="step-name">Development</p>
+              <h3>We build something your team can live with</h3>
+              <p>
+                You see the work as it comes together. It works on the phones
+                your customers actually use, and it stays faithful to your brand.
+              </p>
+              <ul class="points">
+                <li>Clear on phones, tablets and desktops</li>
+                <li>Built with current HTML, CSS and JavaScript</li>
+                <li>Checked, reusable and backed up</li>
+                <li>Straightforward for the person who will update it</li>
+              </ul>
+            </li>
+            <li class="step">
+              <span class="step-index">3</span>
+              <p class="step-name">Launch</p>
+              <h3>You can run it after we leave</h3>
+              <p>
+                We test it with you before anyone else sees it. If there is a
+                content system, we train the people who will use it.
+              </p>
+              <ul class="points">
+                <li>Checked on the devices your customers use</li>
+                <li>Nothing goes live until you are happy</li>
+                <li>Training so your team can publish</li>
+                <li>A month of free defect fixes, then support if you want it</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="band" id="work" aria-labelledby="work-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">Selected work</p>
+            <h2 id="work-title">What we built</h2>
+          </header>
+
+          <div class="work-grid">
+            <article class="project" id="tectum">
+              <img
+                src="assets/tectum.jpg"
+                width="1600"
+                height="822"
+                alt="Tectum Ecobau website shown on a desktop, laptop, tablet and phone"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <h3>Tectum Ecobau</h3>
+                <p class="sector">Sustainable building</p>
+                <p>
+                  The site works on phones and desktops. The team adds a new
+                  build from their own back end when it is ready to show.
+                </p>
+              </div>
+            </article>
+
+            <article class="project" id="virtus">
+              <img
+                src="assets/virtus.jpg"
+                width="1600"
+                height="811"
+                alt="Virtus Respiratory Research website shown across desktop and mobile screens"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <h3>Virtus Respiratory Research</h3>
+                <p class="sector">Clinical research studies in respiratory</p>
+                <p>
+                  Alongside the public site there is a shop and a Mailchimp
+                  list. After a handover, the clinic can publish, take orders
+                  and write to that list.
+                </p>
+              </div>
+            </article>
+
+            <article class="project" id="leithaus">
+              <img
+                src="assets/leithaus.jpg"
+                width="1600"
+                height="884"
+                alt="Leithaus website shown across desktop and mobile screens"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <h3>Leithaus</h3>
+                <p class="sector">Real estate investments</p>
+                <p>
+                  Investment opportunities live in one place, on a site the
+                  team was shown how to update. Follow-up goes out through
+                  Mailchimp.
+                </p>
+              </div>
+            </article>
+
+            <article class="project" id="america">
+              <img
+                src="assets/america.jpg"
+                width="1400"
+                height="909"
+                alt="C and America Latina website shown on a desktop, laptop, tablet and phone"
+                loading="lazy"
+              />
+              <div class="project-body">
+                <h3>C&amp; America Latina</h3>
+                <p class="sector">Contemporary African art</p>
+                <p>
+                  Visitors can search the work. Editors publish in more than
+                  one language, across more than one site, from a back end
+                  they were trained to use.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-plain" id="clients" aria-labelledby="clients-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">Clients</p>
+            <h2 id="clients-title">What they noticed</h2>
+          </header>
+
+          <div class="quote-grid">
+            <figure class="quote">
+              <blockquote>
+                <p>
+                  They sorted the user journey and the problems in the way. The
+                  process still delivered when the deadline was tight.
+                </p>
+              </blockquote>
+              <figcaption>
+                <img
+                  src="assets/britta.jpg"
+                  width="100"
+                  height="100"
+                  alt=""
+                />
+                <span>
+                  <strong>Britta Rogozinski</strong>
+                  <span>Founder / Graphic Designer</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="quote">
+              <blockquote>
+                <p>
+                  They showed us how to present content for search. The site
+                  that followed produced a 100% uplift in online reservations.
+                </p>
+              </blockquote>
+              <figcaption>
+                <img src="assets/omar.jpg" width="400" height="400" alt="" />
+                <span>
+                  <strong>Omar Shah</strong>
+                  <span>Entrepreneur</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="quote">
+              <blockquote>
+                <p>
+                  We needed WordPress in more than one language, across more
+                  than one site. They built it, trained us to publish, and
+                  showed us how to read the traffic in Google Analytics.
+                </p>
+              </blockquote>
+              <figcaption>
+                <img src="assets/julia.jpg" width="400" height="400" alt="" />
+                <span>
+                  <strong>Julia Grosse</strong>
+                  <span>Editor-in-chief</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="contact" aria-labelledby="contact-title">
+        <div class="wrap contact-grid">
+          <div class="contact-copy">
+            <p class="kicker">Contact</p>
+            <h2 id="contact-title">Tell us about the business</h2>
+            <p class="lede">
+              A short note is enough. Say what you sell, who it is for, and
+              what you want the website or app to do. We reply by email.
+            </p>
+            <p class="email-line">
+              <a href="mailto:info@watsapsap.com">info@watsapsap.com</a>
+            </p>
+            <p class="location">Bromley, Southeast London</p>
+            <ul class="points reassure">
+              <li>A straight conversation, sized to a small or medium business</li>
+              <li>We build it, then show your team how to use it</li>
+              <li>One month of free defect fixes after launch</li>
+            </ul>
+          </div>
+
+          <form id="contact-form" class="form" novalidate>
+            <p id="subject-note" class="form-note" hidden></p>
+
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+              <p id="name-error" class="field-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="email">Your email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+              />
+              <p id="email-error" class="field-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="subject">What do you need?</label>
+              <input id="subject" name="subject" type="text" required />
+              <p id="subject-error" class="field-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="message">About the business <span class="optional">(optional)</span></label>
+              <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="button" type="submit">Prepare email</button>
+              <p class="form-hint">
+                This opens your email app with the note ready to send to us.
+              </p>
+            </div>
+          </form>
+
+          <div id="form-success" class="form-success" hidden>
+            <h3>Your email app should open</h3>
+            <p>
+              If nothing opens, write to
+              <a href="mailto:info@watsapsap.com">info@watsapsap.com</a>
+              and include the same note.
+            </p>
+            <button class="button button-quiet" type="button" id="edit-message">
+              Edit message
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-bar">
+        <p>© 2026 Watsapsap Ltd</p>
+        <p>Bromley, Southeast London</p>
+        <p><a href="mailto:info@watsapsap.com">info@watsapsap.com</a></p>
+      </div>
+    </footer>
+
+    <a class="contact-dock" href="#contact">Get in touch</a>
+    <button class="to-top" type="button" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 19V6M6.5 11.5 12 6l5.5 5.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span class="to-top-label">Back to top</span>
+    </button>
+
+    <script src="main.js"></script>
+  </body>
+</html>
