@@ -5,7 +5,7 @@ locale: en-GB
 backend:
   name: github
   repo: williamrodil/watsapsap
-  branch: cms
+  branch: main
 
 media_folder: /src/assets
 public_folder: /assets
