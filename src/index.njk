@@ -339,5 +339,10 @@
 
     <script type="application/json" id="featured-work">{{ work.projects | json | safe }}</script>
     <script src="main.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js").catch(function () {});
+      }
+    </script>
   </body>
 </html>

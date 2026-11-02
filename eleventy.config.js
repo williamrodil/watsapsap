@@ -3,6 +3,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/styles.css": "styles.css" });
   eleventyConfig.addPassthroughCopy({ "src/main.js": "main.js" });
+  eleventyConfig.addPassthroughCopy({ "src/sw.js": "sw.js" });
 
   eleventyConfig.addFilter("asset", (value) =>
     typeof value === "string" ? value.replace(/^\//, "") : value,
