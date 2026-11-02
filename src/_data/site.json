@@ -1,5 +1,5 @@
 {
-  "title": "Watsapsap — Websites and apps for small and medium businesses",
+  "title": "Watsapsap — Websites and apps for small and medium businesses Test",
   "description": "Watsapsap Ltd in Bromley builds websites, web apps, phone apps and content systems for small and medium businesses. A clear process, training for your team, and a month of free fixes after launch.",
   "brand": "Watsapsap",
   "email": "info@watsapsap.com",
@@ -8,11 +8,26 @@
   "year": "2026",
   "navLabel": "Page",
   "nav": [
-    { "label": "Services", "href": "#services" },
-    { "label": "Process", "href": "#process" },
-    { "label": "Work", "href": "#work" },
-    { "label": "Clients", "href": "#clients" },
-    { "label": "Contact", "href": "#contact" }
+    {
+      "label": "Services",
+      "href": "#services"
+    },
+    {
+      "label": "Process",
+      "href": "#process"
+    },
+    {
+      "label": "Work",
+      "href": "#work"
+    },
+    {
+      "label": "Clients",
+      "href": "#clients"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
   ],
   "headerButton": "Get in touch",
   "headerButtonHref": "#contact",
