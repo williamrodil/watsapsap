@@ -46,7 +46,9 @@ const header = document.querySelector(".site-header");
 function setMenu(open) {
   nav.classList.toggle("is-open", open);
   toggle.setAttribute("aria-expanded", String(open));
-  toggle.querySelector(".nav-toggle-label").textContent = open ? "Close" : "Menu";
+  toggle.querySelector(".nav-toggle-label").textContent = open
+    ? toggle.dataset.labelClose || "Close"
+    : toggle.dataset.labelOpen || "Menu";
 }
 
 toggle.addEventListener("click", () => {
@@ -125,19 +127,19 @@ const fields = [
   {
     input: nameInput,
     error: document.querySelector("#name-error"),
-    message: "Add your name so we know who to reply to.",
+    message: form.dataset.nameError || "Add your name so we know who to reply to.",
     valid: (value) => value.trim().length > 0,
   },
   {
     input: emailInput,
     error: document.querySelector("#email-error"),
-    message: "Add an email address we can reply to.",
+    message: form.dataset.emailError || "Add an email address we can reply to.",
     valid: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()),
   },
   {
     input: subjectInput,
     error: document.querySelector("#subject-error"),
-    message: "Tell us what you need, or choose a service above.",
+    message: form.dataset.subjectError || "Tell us what you need, or choose a service above.",
     valid: (value) => value.trim().length > 0,
   },
 ];
@@ -172,7 +174,8 @@ document.querySelectorAll("[data-subject]").forEach((button) => {
     subjectInput.value = button.dataset.subject;
     showError(fields[2], false);
     subjectNote.hidden = false;
-    subjectNote.textContent = `Subject set to “${button.dataset.subject}”. Change it if that is not quite right.`;
+    const note = form.dataset.subjectNote || "Subject set to “{subject}”. Change it if that is not quite right.";
+    subjectNote.textContent = note.replaceAll("{subject}", button.dataset.subject);
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     document.querySelector("#contact").scrollIntoView({
       behavior: reduce ? "auto" : "smooth",
@@ -201,7 +204,7 @@ form.addEventListener("submit", (event) => {
     messageInput.value.trim() || "(No message added)",
   ].join("\n");
 
-  const mailto = `mailto:info@watsapsap.com?subject=${encodeURIComponent(
+  const mailto = `mailto:${form.dataset.email}?subject=${encodeURIComponent(
     subjectInput.value.trim(),
   )}&body=${encodeURIComponent(body)}`;
 
@@ -216,44 +219,25 @@ document.querySelector("#edit-message").addEventListener("click", () => {
   nameInput.focus();
 });
 
-const featuredWork = [
-  {
-    id: "tectum",
-    name: "Tectum Ecobau",
-    src: "assets/tectum.jpg",
-    width: 1600,
-    height: 822,
-    alt: "Tectum Ecobau website shown on a desktop, laptop, tablet and phone",
-  },
-  {
-    id: "virtus",
-    name: "Virtus Respiratory Research",
-    src: "assets/virtus.jpg",
-    width: 1600,
-    height: 811,
-    alt: "Virtus Respiratory Research website shown across desktop and mobile screens",
-  },
-  {
-    id: "leithaus",
-    name: "Leithaus",
-    src: "assets/leithaus.jpg",
-    width: 1600,
-    height: 884,
-    alt: "Leithaus website shown across desktop and mobile screens",
-  },
-  {
-    id: "america",
-    name: "C& America Latina",
-    src: "assets/america.jpg",
-    width: 1400,
-    height: 909,
-    alt: "C and America Latina website shown on a desktop, laptop, tablet and phone",
-  },
-];
+function assetPath(src) {
+  return typeof src === "string" ? src.replace(/^\//, "") : src;
+}
+
+const featuredWork = JSON.parse(document.querySelector("#featured-work").textContent).map(
+  (project) => ({
+    id: project.id,
+    name: project.title,
+    src: assetPath(project.image),
+    width: project.width || 1600,
+    height: project.height || 900,
+    alt: project.alt || "",
+  }),
+);
 
 const shot = document.querySelector(".hero-shot");
 const shotImg = shot.querySelector("img");
 const shotTitle = shot.querySelector(".hero-shot-title");
+const viewPrefix = shot.dataset.viewPrefix || "View";
 let featuredIndex = Math.max(
   0,
   featuredWork.findIndex((project) => shot.getAttribute("href") === `#${project.id}`),
@@ -268,7 +252,7 @@ function showFeatured(next) {
   shotImg.width = project.width;
   shotImg.height = project.height;
   shotImg.alt = project.alt;
-  shotTitle.textContent = `View ${project.name}`;
+  shotTitle.textContent = `${viewPrefix} ${project.name}`;
 }
 
 function randomOtherFeature() {
@@ -320,8 +304,10 @@ function rotateFeatured() {
 }
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-showFeatured(Math.floor(Math.random() * featuredWork.length));
 
-if (!reduceMotion) {
-  window.setInterval(rotateFeatured, 6000);
+if (featuredWork.length) {
+  showFeatured(Math.floor(Math.random() * featuredWork.length));
+  if (!reduceMotion && featuredWork.length > 1) {
+    window.setInterval(rotateFeatured, 6000);
+  }
 }

@@ -1,0 +1,33 @@
+{
+  "kicker": "Clients",
+  "title": "What they noticed",
+  "quotes": [
+    {
+      "quote": "They sorted the user journey and the problems in the way. The process still delivered when the deadline was tight.",
+      "name": "Britta Rogozinski",
+      "role": "Founder / Graphic Designer",
+      "image": "/assets/britta.jpg",
+      "width": 100,
+      "height": 100,
+      "alt": ""
+    },
+    {
+      "quote": "They showed us how to present content for search. The site that followed produced a 100% uplift in online reservations.",
+      "name": "Omar Shah",
+      "role": "Entrepreneur",
+      "image": "/assets/omar.jpg",
+      "width": 400,
+      "height": 400,
+      "alt": ""
+    },
+    {
+      "quote": "We needed WordPress in more than one language, across more than one site. They built it, trained us to publish, and showed us how to read the traffic in Google Analytics.",
+      "name": "Julia Grosse",
+      "role": "Editor-in-chief",
+      "image": "/assets/julia.jpg",
+      "width": 400,
+      "height": 400,
+      "alt": ""
+    }
+  ]
+}

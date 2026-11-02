@@ -1,0 +1,25 @@
+{
+  "kicker": "Services",
+  "title": "What a smaller business actually needs",
+  "lede": "Most clients come to us without a digital department. We scope the job to the customers you have now, then leave your team able to run it.",
+  "items": [
+    {
+      "title": "Website & web app",
+      "body": "A site people can use on a phone, with a clear route to enquire, book or buy. Useful when the current site is hard to update, or it does not bring in the work.",
+      "button": "Talk about a website",
+      "subject": "Website or web app"
+    },
+    {
+      "title": "Phone & tablet app",
+      "body": "An app for the customers or staff who live on a phone. A better fit than a website when the job is repeated every day, such as bookings, updates or a tool for your team.",
+      "button": "Talk about an app",
+      "subject": "Phone or tablet app"
+    },
+    {
+      "title": "Content system",
+      "body": "A back end your office can use. We build it, train the people who will publish, and stay on for maintenance so you are not calling a developer for every change.",
+      "button": "Talk about a content system",
+      "subject": "Content system"
+    }
+  ]
+}
