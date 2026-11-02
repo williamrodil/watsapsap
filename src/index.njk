@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="theme-color" content="#f4f6fa" />
+    <script>
+      (function () {
+        var key = "watsapsap-theme";
+        try {
+          var legacy = localStorage.getItem("theme");
+          if (
+            (legacy === "light" || legacy === "dark") &&
+            localStorage.getItem(key) !== "light" &&
+            localStorage.getItem(key) !== "dark"
+          ) {
+            localStorage.setItem(key, legacy);
+          }
+          var saved = localStorage.getItem(key);
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.dataset.theme = theme;
+          document.querySelector('meta[name="theme-color"]').content =
+            theme === "dark" ? "#07111e" : "#f4f6fa";
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">{{ site.skip }}</a>
+
+    <header class="site-header">
+      <div class="wrap header-bar">
+        <a class="brand" href="#top">
+          <span class="mark" aria-hidden="true"></span>
+          {{ site.brand }}
+        </a>
+
+        <nav id="site-nav" class="site-nav" aria-label="{{ site.navLabel }}">
+          {% for item in site.nav %}
+            <a href="{{ item.href }}">{{ item.label }}</a>
+          {% endfor %}
+        </nav>
+
+        <button class="theme-toggle" type="button" aria-pressed="false">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M15.5 3.5a8.5 8.5 0 1 0 5 12.2A7 7 0 0 1 15.5 3.5Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <path
+              d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span class="theme-toggle-text when-light">{{ site.themeToDark }}</span>
+          <span class="theme-toggle-text when-dark">{{ site.themeToLight }}</span>
+        </button>
+
+        <a class="button button-small header-contact" href="{{ site.headerButtonHref }}">{{ site.headerButton }}</a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          data-label-open="{{ site.menuOpen }}"
+          data-label-close="{{ site.menuClose }}"
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="nav-toggle-label">{{ site.menuOpen }}</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      {% set featured = work.projects[0] %}
+      <section class="hero" id="top">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">{{ hero.kicker }}</p>
+            <h1>{{ hero.title }}</h1>
+            <p class="lede">{{ hero.lede }}</p>
+            <div class="actions">
+              <a class="button" href="{{ hero.primaryHref }}">{{ hero.primaryLabel }}</a>
+              <a class="button button-quiet" href="{{ hero.secondaryHref }}">{{ hero.secondaryLabel }}</a>
+            </div>
+          </div>
+
+          <a class="hero-shot" href="#{{ featured.id }}" data-view-prefix="{{ hero.viewPrefix }}">
+            <img
+              src="{{ featured.image | asset }}"
+              width="{{ featured.width }}"
+              height="{{ featured.height }}"
+              alt="{{ featured.alt }}"
+              fetchpriority="high"
+            />
+            <span class="hero-shot-caption">
+              <span>{{ hero.caption }}</span>
+              <strong class="hero-shot-title">{{ hero.viewPrefix }} {{ featured.title }}</strong>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="band" id="services" aria-labelledby="services-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">{{ services.kicker }}</p>
+            <h2 id="services-title">{{ services.title }}</h2>
+            <p class="lede">{{ services.lede }}</p>
+          </header>
+
+          <div class="service-grid">
+            {% for item in services.items %}
+              <article class="service">
+                <p class="index">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</p>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.body }}</p>
+                <button type="button" class="text-link" data-subject="{{ item.subject }}">
+                  {{ item.button }}
+                </button>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-plain" id="process" aria-labelledby="process-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">{{ process.kicker }}</p>
+            <h2 id="process-title">{{ process.title }}</h2>
+            <p class="lede">{{ process.lede }}</p>
+          </header>
+
+          <ol class="steps">
+            {% for step in process.steps %}
+              <li class="step">
+                <span class="step-index">{{ loop.index }}</span>
+                <p class="step-name">{{ step.name }}</p>
+                <h3>{{ step.title }}</h3>
+                <p>{{ step.body }}</p>
+                <ul class="points">
+                  {% for point in step.points %}
+                    <li>{{ point }}</li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+
+      <section class="band" id="work" aria-labelledby="work-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">{{ work.kicker }}</p>
+            <h2 id="work-title">{{ work.title }}</h2>
+          </header>
+
+          <div class="work-grid">
+            {% for project in work.projects %}
+              <article class="project" id="{{ project.id }}">
+                <img
+                  src="{{ project.image | asset }}"
+                  width="{{ project.width }}"
+                  height="{{ project.height }}"
+                  alt="{{ project.alt }}"
+                  loading="lazy"
+                />
+                <div class="project-body">
+                  <h3>{{ project.title }}</h3>
+                  <p class="sector">{{ project.sector }}</p>
+                  <p>{{ project.body }}</p>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-plain" id="clients" aria-labelledby="clients-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="kicker">{{ clients.kicker }}</p>
+            <h2 id="clients-title">{{ clients.title }}</h2>
+          </header>
+
+          <div class="quote-grid">
+            {% for person in clients.quotes %}
+              <figure class="quote">
+                <blockquote>
+                  <p>{{ person.quote }}</p>
+                </blockquote>
+                <figcaption>
+                  <img
+                    src="{{ person.image | asset }}"
+                    width="{{ person.width }}"
+                    height="{{ person.height }}"
+                    alt="{{ person.alt }}"
+                  />
+                  <span>
+                    <strong>{{ person.name }}</strong>
+                    <span>{{ person.role }}</span>
+                  </span>
+                </figcaption>
+              </figure>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="contact" aria-labelledby="contact-title">
+        <div class="wrap contact-grid">
+          <div class="contact-copy">
+            <p class="kicker">{{ contact.kicker }}</p>
+            <h2 id="contact-title">{{ contact.title }}</h2>
+            <p class="lede">{{ contact.lede }}</p>
+            <p class="email-line">
+              <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+            </p>
+            <p class="location">{{ site.location }}</p>
+            <ul class="points reassure">
+              {% for point in contact.points %}
+                <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <form
+            id="contact-form"
+            class="form"
+            novalidate
+            data-email="{{ site.email }}"
+            data-name-error="{{ contact.nameError }}"
+            data-email-error="{{ contact.emailError }}"
+            data-subject-error="{{ contact.subjectError }}"
+            data-subject-note="{{ contact.subjectNote }}"
+          >
+            <p id="subject-note" class="form-note" hidden></p>
+
+            <div class="field">
+              <label for="name">{{ contact.nameLabel }}</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+              <p id="name-error" class="field-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="email">{{ contact.emailLabel }}</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+              />
+              <p id="email-error" class="field-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="subject">{{ contact.subjectLabel }}</label>
+              <input id="subject" name="subject" type="text" required />
+              <p id="subject-error" class="field-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="message">{{ contact.messageLabel }} <span class="optional">{{ contact.optional }}</span></label>
+              <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="button" type="submit">{{ contact.submit }}</button>
+              <p class="form-hint">{{ contact.hint }}</p>
+            </div>
+          </form>
+
+          <div id="form-success" class="form-success" hidden>
+            <h3>{{ contact.successTitle }}</h3>
+            <p>
+              {{ contact.successLead }}
+              <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+              {{ contact.successTail }}
+            </p>
+            <button class="button button-quiet" type="button" id="edit-message">
+              {{ contact.edit }}
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-bar">
+        <p>© {{ site.year }} {{ site.company }}</p>
+        <p>{{ site.location }}</p>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </div>
+    </footer>
+
+    <a class="contact-dock" href="{{ site.dockHref }}">{{ site.dockLabel }}</a>
+    <button class="to-top" type="button" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 19V6M6.5 11.5 12 6l5.5 5.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span class="to-top-label">{{ site.toTop }}</span>
+    </button>
+
+    <script type="application/json" id="featured-work">{{ work.projects | json | safe }}</script>
+    <script src="main.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js").catch(function () {});
+      }
+    </script>
+  </body>
+</html>

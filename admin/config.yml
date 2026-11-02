@@ -1,0 +1,193 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+locale: en-GB
+
+backend:
+  name: github
+  repo: williamrodil/watsapsap
+  branch: cms
+
+media_folder: /src/assets
+public_folder: /assets
+
+collections:
+  - name: content
+    label: Site content
+    icon: edit_note
+    editor:
+      preview: false
+    files:
+      - name: site
+        label: Site
+        icon: settings
+        file: src/_data/site.json
+        format: json
+        preview_path: /
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Page description, name: description, widget: text }
+          - { label: Brand, name: brand, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Location, name: location, widget: string }
+          - { label: Company, name: company, widget: string }
+          - { label: Copyright year, name: year, widget: string }
+          - { label: Navigation label, name: navLabel, widget: string, hint: Screen-reader name for the menu }
+          - label: Navigation
+            name: nav
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string, hint: "#services, #process, #work, #clients or #contact" }
+          - { label: Header button, name: headerButton, widget: string }
+          - { label: Header button link, name: headerButtonHref, widget: string }
+          - { label: Switch to dark, name: themeToDark, widget: string }
+          - { label: Switch to light, name: themeToLight, widget: string }
+          - { label: Open menu, name: menuOpen, widget: string }
+          - { label: Close menu, name: menuClose, widget: string }
+          - { label: Skip link, name: skip, widget: string }
+          - { label: Dock button, name: dockLabel, widget: string }
+          - { label: Dock link, name: dockHref, widget: string }
+          - { label: Back to top, name: toTop, widget: string }
+
+      - name: hero
+        label: Hero
+        icon: home
+        file: src/_data/hero.json
+        format: json
+        preview_path: /
+        fields:
+          - { label: Kicker, name: kicker, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - { label: Introduction, name: lede, widget: text }
+          - { label: Primary button, name: primaryLabel, widget: string }
+          - { label: Primary link, name: primaryHref, widget: string }
+          - { label: Secondary button, name: secondaryLabel, widget: string }
+          - { label: Secondary link, name: secondaryHref, widget: string }
+          - { label: Image caption, name: caption, widget: string }
+          - { label: Image link prefix, name: viewPrefix, widget: string, hint: Shown before the project name, for example View }
+
+      - name: services
+        label: Services
+        icon: design_services
+        file: src/_data/services.json
+        format: json
+        preview_path: /#services
+        fields:
+          - { label: Kicker, name: kicker, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - { label: Introduction, name: lede, widget: text }
+          - label: Services
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: body, widget: text }
+              - { label: Button, name: button, widget: string }
+              - { label: Email subject, name: subject, widget: string, hint: Fills the contact form when the button is used }
+
+      - name: process
+        label: Process
+        icon: format_list_numbered
+        file: src/_data/process.json
+        format: json
+        preview_path: /#process
+        fields:
+          - { label: Kicker, name: kicker, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - { label: Introduction, name: lede, widget: text }
+          - label: Steps
+            name: steps
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Step name, name: name, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Text, name: body, widget: text }
+              - label: Points
+                name: points
+                widget: list
+                field: { label: Point, name: point, widget: string }
+
+      - name: work
+        label: Work
+        icon: work
+        file: src/_data/work.json
+        format: json
+        preview_path: /#work
+        fields:
+          - { label: Kicker, name: kicker, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - label: Projects
+            name: projects
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - label: Anchor
+                name: id
+                widget: string
+                pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Lowercase letters, numbers and hyphens"]
+                hint: Used in the page address, for example tectum
+              - { label: Title, name: title, widget: string }
+              - { label: Sector, name: sector, widget: string }
+              - { label: Text, name: body, widget: text }
+              - { label: Image, name: image, widget: image }
+              - { label: Image description, name: alt, widget: string }
+              - { label: Width, name: width, widget: number, value_type: int, min: 1 }
+              - { label: Height, name: height, widget: number, value_type: int, min: 1 }
+
+      - name: clients
+        label: Clients
+        icon: format_quote
+        file: src/_data/clients.json
+        format: json
+        preview_path: /#clients
+        fields:
+          - { label: Kicker, name: kicker, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - label: Quotes
+            name: quotes
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Quote, name: quote, widget: text }
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Photo, name: image, widget: image }
+              - { label: Photo description, name: alt, widget: string, required: false }
+              - { label: Width, name: width, widget: number, value_type: int, min: 1 }
+              - { label: Height, name: height, widget: number, value_type: int, min: 1 }
+
+      - name: contact
+        label: Contact
+        icon: mail
+        file: src/_data/contact.json
+        format: json
+        preview_path: /#contact
+        fields:
+          - { label: Kicker, name: kicker, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - { label: Introduction, name: lede, widget: text }
+          - label: Reassurance
+            name: points
+            widget: list
+            field: { label: Point, name: point, widget: string }
+          - { label: Name label, name: nameLabel, widget: string }
+          - { label: Email label, name: emailLabel, widget: string }
+          - { label: Subject label, name: subjectLabel, widget: string }
+          - { label: Message label, name: messageLabel, widget: string }
+          - { label: Optional note, name: optional, widget: string }
+          - { label: Submit button, name: submit, widget: string }
+          - { label: Form hint, name: hint, widget: string }
+          - { label: Success heading, name: successTitle, widget: string }
+          - { label: Success text before email, name: successLead, widget: string }
+          - { label: Success text after email, name: successTail, widget: string }
+          - { label: Edit button, name: edit, widget: string }
+          - { label: Name error, name: nameError, widget: string }
+          - { label: Email error, name: emailError, widget: string }
+          - { label: Subject error, name: subjectError, widget: string }
+          - label: Subject note
+            name: subjectNote
+            widget: string
+            hint: "{subject} is replaced with the chosen service"

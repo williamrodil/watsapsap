@@ -1,0 +1,25 @@
+{
+  "kicker": "Contact",
+  "title": "Tell us about the business",
+  "lede": "A short note is enough. Say what you sell, who it is for, and what you want the website or app to do. We reply by email.",
+  "points": [
+    "A straight conversation, sized to a small or medium business",
+    "We build it, then show your team how to use it",
+    "One month of free defect fixes after launch"
+  ],
+  "nameLabel": "Your name",
+  "emailLabel": "Your email",
+  "subjectLabel": "What do you need?",
+  "messageLabel": "About the business",
+  "optional": "(optional)",
+  "submit": "Prepare email",
+  "hint": "This opens your email app with the note ready to send to us.",
+  "successTitle": "Your email app should open",
+  "successLead": "If nothing opens, write to",
+  "successTail": "and include the same note.",
+  "edit": "Edit message",
+  "nameError": "Add your name so we know who to reply to.",
+  "emailError": "Add an email address we can reply to.",
+  "subjectError": "Tell us what you need, or choose a service above.",
+  "subjectNote": "Subject set to “{subject}”. Change it if that is not quite right."
+}

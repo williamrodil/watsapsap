@@ -1,0 +1,40 @@
+{
+  "kicker": "How it works",
+  "title": "Three steps. No agency fog.",
+  "lede": "You are running a business while this gets built. Each step has a job, and you always know whether we are listening, building or getting ready to launch.",
+  "steps": [
+    {
+      "name": "Consultation",
+      "title": "We start with your customers",
+      "body": "We look at how people find you, what they need to do, and what is getting in the way. The recommendation is the simplest build that does that job.",
+      "points": [
+        "How a customer moves from first visit to enquiry",
+        "What the business needs the system to do this year",
+        "Where a simpler approach will do",
+        "What is worth fixing before anything new is added"
+      ]
+    },
+    {
+      "name": "Development",
+      "title": "We build something your team can live with",
+      "body": "You see the work as it comes together. It works on the phones your customers actually use, and it stays faithful to your brand.",
+      "points": [
+        "Clear on phones, tablets and desktops",
+        "Built with current HTML, CSS and JavaScript",
+        "Checked, reusable and backed up",
+        "Straightforward for the person who will update it"
+      ]
+    },
+    {
+      "name": "Launch",
+      "title": "You can run it after we leave",
+      "body": "We test it with you before anyone else sees it. If there is a content system, we train the people who will use it.",
+      "points": [
+        "Checked on the devices your customers use",
+        "Nothing goes live until you are happy",
+        "Training so your team can publish",
+        "A month of free defect fixes, then support if you want it"
+      ]
+    }
+  ]
+}
