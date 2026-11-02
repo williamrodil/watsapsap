@@ -1,5 +1,5 @@
 {
-  "kicker": "Selected work",
+  "kicker": "Selected work Testing",
   "title": "What we built",
   "projects": [
     {
@@ -8,9 +8,9 @@
       "sector": "Sustainable building",
       "body": "The site works on phones and desktops. The team adds a new build from their own back end when it is ready to show.",
       "image": "/assets/tectum.jpg",
+      "alt": "Tectum Ecobau website shown on a desktop, laptop, tablet and phone",
       "width": 1600,
-      "height": 822,
-      "alt": "Tectum Ecobau website shown on a desktop, laptop, tablet and phone"
+      "height": 822
     },
     {
       "id": "virtus",
@@ -18,9 +18,9 @@
       "sector": "Clinical research studies in respiratory",
       "body": "Alongside the public site there is a shop and a Mailchimp list. After a handover, the clinic can publish, take orders and write to that list.",
       "image": "/assets/virtus.jpg",
+      "alt": "Virtus Respiratory Research website shown across desktop and mobile screens",
       "width": 1600,
-      "height": 811,
-      "alt": "Virtus Respiratory Research website shown across desktop and mobile screens"
+      "height": 811
     },
     {
       "id": "leithaus",
@@ -28,9 +28,9 @@
       "sector": "Real estate investments",
       "body": "Investment opportunities live in one place, on a site the team was shown how to update. Follow-up goes out through Mailchimp.",
       "image": "/assets/leithaus.jpg",
+      "alt": "Leithaus website shown across desktop and mobile screens",
       "width": 1600,
-      "height": 884,
-      "alt": "Leithaus website shown across desktop and mobile screens"
+      "height": 884
     },
     {
       "id": "america",
@@ -38,9 +38,9 @@
       "sector": "Contemporary African art",
       "body": "Visitors can search the work. Editors publish in more than one language, across more than one site, from a back end they were trained to use.",
       "image": "/assets/america.jpg",
+      "alt": "C and America Latina website shown on a desktop, laptop, tablet and phone",
       "width": 1400,
-      "height": 909,
-      "alt": "C and America Latina website shown on a desktop, laptop, tablet and phone"
+      "height": 909
     }
   ]
 }
