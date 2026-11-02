@@ -216,6 +216,117 @@ document.querySelector("#edit-message").addEventListener("click", () => {
   nameInput.focus();
 });
 
+document.querySelectorAll(".bento-card").forEach((card) => {
+  const toggle = card.querySelector(".bento-toggle");
+  const reveal = card.querySelector(".bento-reveal");
+
+  const syncReveal = () => {
+    const open =
+      card.classList.contains("is-open") ||
+      card.matches(":hover") ||
+      card.matches(":focus-within");
+    reveal.inert = !open;
+  };
+
+  syncReveal();
+  toggle.addEventListener("click", () => {
+    const open = !card.classList.contains("is-open");
+    card.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    syncReveal();
+  });
+  card.addEventListener("pointerenter", syncReveal);
+  card.addEventListener("pointerleave", syncReveal);
+  card.addEventListener("focusin", syncReveal);
+  card.addEventListener("focusout", () => window.setTimeout(syncReveal, 0));
+});
+
+const miniPage = document.querySelector("#mini-page");
+const miniResult = document.querySelector("#mini-result");
+document.querySelectorAll("[data-device]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const phone = button.dataset.device === "phone";
+    miniPage.classList.toggle("is-phone", phone);
+    document.querySelectorAll("[data-device]").forEach((item) => {
+      const selected = item === button;
+      item.classList.toggle("is-selected", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    miniResult.textContent = phone
+      ? "The same page, stacked for a phone. The booking action stays easy to reach."
+      : "The same page, laid out for a wide screen.";
+  });
+});
+
+const miniChat = document.querySelector("#mini-chat");
+const miniQuestion = document.querySelector("#mini-question");
+
+function answerServicePreview(question) {
+  const text = question.toLowerCase();
+  let reply = "This preview only knows one sample enquiry. Ask for a draft reply, or what to automate.";
+  if (text.includes("reply") || text.includes("draft")) {
+    reply = "Thanks for writing. We can visit on Thursday and will send a price the same day.";
+  } else if (text.includes("automat") || text.includes("what")) {
+    reply = "The first reply. Most enquiries ask the same three questions, and a draft can answer them.";
+  }
+  miniChat.replaceChildren();
+  const paragraph = document.createElement("p");
+  paragraph.textContent = reply;
+  miniChat.append(paragraph);
+}
+
+document.querySelectorAll("[data-ai]").forEach((button) => {
+  button.addEventListener("click", () => {
+    miniQuestion.value = button.dataset.ai;
+    answerServicePreview(button.dataset.ai);
+  });
+});
+
+document.querySelector("#mini-ask").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const question = miniQuestion.value.trim();
+  if (!question) {
+    miniQuestion.focus();
+    return;
+  }
+  answerServicePreview(question);
+});
+
+const flowCopy = {
+  now: "Enquiries arrive by phone, email and paper. Nothing sits in one place.",
+  simplify: "One form, one list, and one person responsible for the reply.",
+  handover: "The team runs it. We stay for the first month and fix defects for free.",
+};
+
+document.querySelectorAll("[data-step]").forEach((button) => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll("[data-step]").forEach((item) => {
+      const selected = item === button;
+      item.classList.toggle("is-selected", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    document.querySelector("#flow-result").textContent = flowCopy[button.dataset.step];
+  });
+});
+
+const archCopy = {
+  site: "The public site. Enquiries start here, then pass to the tools you already use.",
+  shop: "Orders from the site land in the shop, not in a shared inbox.",
+  mail: "A new enquiry can join the mailing list when the customer asks.",
+  diary: "A booking on the site takes a free slot in the diary.",
+};
+
+document.querySelectorAll("[data-node]").forEach((button) => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll("[data-node]").forEach((item) => {
+      const selected = item === button;
+      item.classList.toggle("is-selected", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    document.querySelector("#arch-result").textContent = archCopy[button.dataset.node];
+  });
+});
+
 const featuredWork = [
   {
     id: "tectum",

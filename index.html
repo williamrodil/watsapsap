@@ -139,48 +139,123 @@
             <p class="kicker">Services</p>
             <h2 id="services-title">What a smaller business actually needs</h2>
             <p class="lede">
-              Most clients come to us without a digital department. We scope
-              the job to the customers you have now, then leave your team able
-              to run it.
+              Open a card. Each preview is a small piece of the work, so you
+              can see what it does before we talk.
             </p>
           </header>
 
           <div class="service-grid">
-            <article class="service">
-              <p class="index">01</p>
-              <h3>Website &amp; web app</h3>
-              <p>
-                A site people can use on a phone, with a clear route to
-                enquire, book or buy. Useful when the current site is hard to
-                update, or it does not bring in the work.
-              </p>
-              <button type="button" class="text-link" data-subject="Website or web app">
-                Talk about a website
-              </button>
+            <article class="bento-card bento-web">
+              <h3>
+                <button class="bento-toggle" type="button" aria-expanded="false">
+                  <span class="bento-photo" aria-hidden="true"></span>
+                  <span class="index">01</span>
+                  Web development
+                  <span class="bento-summary">
+                    A site people can use on a phone, with a clear way to enquire, book or buy.
+                  </span>
+                </button>
+              </h3>
+              <div class="bento-reveal">
+                <div class="bento-reveal-inner">
+                  <div class="mini-browser">
+                    <div class="mini-chrome">
+                      <span class="demo-dots" aria-hidden="true"></span>
+                      <p>yourbusiness.co.uk</p>
+                    </div>
+                    <div class="mini-page" id="mini-page">
+                      <p class="mini-nav">Home · Work · Contact</p>
+                      <p class="mini-heading">Book a visit</p>
+                      <p class="mini-cta">Choose a day</p>
+                    </div>
+                  </div>
+                  <div class="mini-devices" role="group" aria-label="Preview size">
+                    <button type="button" class="chip is-selected" data-device="desktop" aria-pressed="true">Desktop</button>
+                    <button type="button" class="chip" data-device="phone" aria-pressed="false">Phone</button>
+                  </div>
+                  <p class="bento-result" id="mini-result">The same page, laid out for a wide screen.</p>
+                  <button type="button" class="text-link" data-subject="Web development">Talk about a website</button>
+                </div>
+              </div>
             </article>
-            <article class="service">
-              <p class="index">02</p>
-              <h3>Phone &amp; tablet app</h3>
-              <p>
-                An app for the customers or staff who live on a phone. A better
-                fit than a website when the job is repeated every day, such as
-                bookings, updates or a tool for your team.
-              </p>
-              <button type="button" class="text-link" data-subject="Phone or tablet app">
-                Talk about an app
-              </button>
+
+            <article class="bento-card bento-ai">
+              <h3>
+                <button class="bento-toggle" type="button" aria-expanded="false">
+                  <span class="bento-photo" aria-hidden="true"></span>
+                  <span class="index">02</span>
+                  AI solutions
+                  <span class="bento-summary">
+                    A draft reply from the enquiry, so the office is not starting from a blank page.
+                  </span>
+                </button>
+              </h3>
+              <div class="bento-reveal">
+                <div class="bento-reveal-inner">
+                  <div class="mini-chat" id="mini-chat" aria-live="polite">
+                    <p>Ask for a reply, or what to automate. This uses a sample enquiry, not a live assistant.</p>
+                  </div>
+                  <div class="mini-prompts">
+                    <button type="button" data-ai="Draft a reply">Draft a reply</button>
+                    <button type="button" data-ai="What should we automate?">What to automate</button>
+                  </div>
+                  <form class="mini-ask" id="mini-ask">
+                    <label class="demo-ask-label" for="mini-question">Ask the preview</label>
+                    <input id="mini-question" type="text" autocomplete="off" placeholder="Ask about the sample enquiry" />
+                    <button class="button button-small" type="submit">Ask</button>
+                  </form>
+                  <button type="button" class="text-link" data-subject="AI solutions">Talk about an assistant</button>
+                </div>
+              </div>
             </article>
-            <article class="service">
-              <p class="index">03</p>
-              <h3>Content system</h3>
-              <p>
-                A back end your office can use. We build it, train the people
-                who will publish, and stay on for maintenance so you are not
-                calling a developer for every change.
-              </p>
-              <button type="button" class="text-link" data-subject="Content system">
-                Talk about a content system
-              </button>
+
+            <article class="bento-card bento-transform">
+              <h3>
+                <button class="bento-toggle" type="button" aria-expanded="false">
+                  <span class="bento-photo" aria-hidden="true"></span>
+                  <span class="index">03</span>
+                  Digital transformation
+                  <span class="bento-summary">
+                    Fewer handoffs. We tidy the way work moves before we add anything new.
+                  </span>
+                </button>
+              </h3>
+              <div class="bento-reveal">
+                <div class="bento-reveal-inner">
+                  <div class="flow" role="group" aria-label="Workflow">
+                    <button type="button" class="chip is-selected" data-step="now" aria-pressed="true">Now</button>
+                    <button type="button" class="chip" data-step="simplify" aria-pressed="false">Simplify</button>
+                    <button type="button" class="chip" data-step="handover" aria-pressed="false">Hand over</button>
+                  </div>
+                  <p class="bento-result" id="flow-result">Enquiries arrive by phone, email and paper. Nothing sits in one place.</p>
+                  <button type="button" class="text-link" data-subject="Digital transformation">Talk about the workflow</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="bento-card bento-cloud">
+              <h3>
+                <button class="bento-toggle" type="button" aria-expanded="false">
+                  <span class="bento-photo" aria-hidden="true"></span>
+                  <span class="index">04</span>
+                  Cloud and integrations
+                  <span class="bento-summary">
+                    The site, the shop, the mailing list and the diary, joined up without a new login for every job.
+                  </span>
+                </button>
+              </h3>
+              <div class="bento-reveal">
+                <div class="bento-reveal-inner">
+                  <div class="arch" role="group" aria-label="Connected systems">
+                    <button type="button" class="arch-node is-selected" data-node="site" aria-pressed="true">Website</button>
+                    <button type="button" class="arch-node" data-node="shop" aria-pressed="false">Shop</button>
+                    <button type="button" class="arch-node" data-node="mail" aria-pressed="false">Mailing list</button>
+                    <button type="button" class="arch-node" data-node="diary" aria-pressed="false">Diary</button>
+                  </div>
+                  <p class="bento-result" id="arch-result">The public site. Enquiries start here, then pass to the tools you already use.</p>
+                  <button type="button" class="text-link" data-subject="Cloud and integrations">Talk about integrations</button>
+                </div>
+              </div>
             </article>
           </div>
         </div>
